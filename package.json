@@ -1,0 +1,36 @@
+{
+  "name": "angular-demo",
+  "version": "1.0.0",
+  "description": "AngularJS with ExpressJS =====",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --inspect server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pftiller/AngularDemo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pftiller/AngularDemo/issues"
+  },
+  "homepage": "https://github.com/pftiller/AngularDemo#readme",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "axios": "^0.17.1",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "cookie-session": "^2.0.0-beta.3",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.13.6",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.1.0"
+  }
+}

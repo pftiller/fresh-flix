@@ -1,0 +1,123 @@
+/* BASE STYLES */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+a {
+  cursor: pointer;
+}
+.clear {
+  clear:both;
+}
+/* Navigation */
+.navbar {
+  background-color: #333333;
+  width: 100%;
+  border-radius: 0px;
+  font-size:1.5rem;
+}
+.navbar-right {
+  margin-top: 50px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+/* Dropdown */
+
+.select li {
+  background:#fff;
+}
+li a:hover {
+  text-decoration: underline;
+}
+
+/* MY STYLES */
+
+
+html,
+body {
+    background-color:#a8d6fa;
+}
+body {
+    width:95%;
+    margin:0 auto;
+}
+.button {
+  margin:15px 5px;
+}
+.content {
+  width:85%;
+  margin: auto;
+}
+.inline {
+  display: inline-block;
+  margin-right: 10px;
+}
+/* Title Details */
+.poster {
+  float:left;
+  margin-left:10px;
+}
+.film-info {
+  float:right;
+  width: 60%;
+  margin-right:10px;
+}
+.navbar-default,
+.navbar {
+  background-color:#a8d6fa;
+  border: none;
+  box-shadow: none;
+}
+.navbar {
+  min-height: 100px;
+  margin-bottom:35px;
+}
+.navbar-toggle .icon-bar{ background-color: #fff;}
+
+/* HOME */
+.dropdown-toggle {
+  background-color: #fff;
+  border: none;
+  color:#777;
+  width:500px;
+}
+
+.dropdown-menu{
+  background-color: #fff;
+  width:500px;
+}
+
+.dropdown-menu>li{
+  color: #777;
+  padding-left: 5px;
+}
+/*FLICKS*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+th {
+  background-color:#0d8aeb;
+  color:#fff;
+  text-align: center;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(odd){background-color: #d9d9d9}
+
+/*TITLE DETAILS*/
+#title-details img {
+    display:inline-block;
+}

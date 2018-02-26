@@ -1,0 +1,28 @@
+<nav ng-include="'/views/partials/nav.html'" ng-controller="NavController as vm"></nav>
+      <div ng-controller="TitleDetailsController as vm">
+<div class="jumbotron">
+    <div class="content">
+    <h1>{{vm.objs.Title}}</h1>
+<div class="poster">
+    <img ng-src="{{vm.objs.Poster}}">
+</div>  
+<div class="film-info">    
+    <h3 class="inline">{{vm.objs.Year}}</h3>
+    <h3 class="inline">{{vm.objs.Genre}}</h3>
+    <h3 class="inline">{{vm.objs.Runtime}}</h4>
+    <h2 class="inline">{{vm.objs.Ratings[1].Value}}</h2>
+    <p>{{vm.objs.Plot}}</p>
+    <p>{{vm.objs.Released}}</p>
+    <p>{{vm.objs.Director}}</p>
+    <p>{{vm.objs.Actors}}</p>
+    <p>{{vm.objs.Rated}}</p>
+ <button class="btn btn-lg btn-primary button" ng-disabled="vm.isDisabled" ng-click="vm.addToWatchlist(vm.objs, vm.user)">Add to Watchlist</button>
+            <a ng-ref="{{vm.objs.Website}}">Website</a>
+
+
+    
+</div>
+<div class="clear">
+    </div>
+</div>
+</div>
