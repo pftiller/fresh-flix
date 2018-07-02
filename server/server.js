@@ -31,15 +31,10 @@ app.use(sessionConfig);
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
-/* Routes */
-
-
 // Serve static files
 app.use(express.static('server/public'));
 
-// Http Methods
+/* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/themdb', themdbRouter);
 app.use('/watchlist', watchlistRouter);
