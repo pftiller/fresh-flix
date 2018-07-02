@@ -1,8 +1,11 @@
 {
   "name": "angular-demo",
   "version": "1.0.0",
-  "description": "AngularJS with ExpressJS =====",
-  "main": "server.js",
+  "engines": {
+    "node": "9.8.0"
+  },
+  "description": "Fresh Flix is a full-stack web application that allows a user to maintain a ‘watch list’ of movies they would like to see.",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --inspect server/server.js"
@@ -11,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/pftiller/solo-project.git"
   },
-  "author": "",
+  "author": "Paul Tiller",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pftiller/solo-project"
