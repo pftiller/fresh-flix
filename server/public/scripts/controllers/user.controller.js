@@ -8,12 +8,13 @@ myApp.controller('UserController', ['UserService', 'TheMDBService', '$location',
     self.status = UserService.status;
 
     let init = function () {
-            UserService.getuser().then( function (response) {
-                if(response == 'Forbidden') {
-                    $location.path('/login');
+            UserService.getWatchlist()
+    //         .then( function (response) {
+    //             if(response == 'Forbidden') {
+    //                 $location.path('/login');
             
-        }
-    })
+    //     }
+    // })
 }
 
     self.logout = function () {

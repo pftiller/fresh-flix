@@ -15,10 +15,6 @@ AngularJS with ExpressJS
 - ExpressJS
 - Mysql
 
-### Screenshots
-
-![angularjs-screenshot](public/app/images/screenshot.png)
-
 ### License
 - [MIT](http://opensource.org/licenses/MIT)
 

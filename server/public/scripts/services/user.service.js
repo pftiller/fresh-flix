@@ -56,7 +56,7 @@ myApp.service('UserService', ['$http', '$location', '$log',
     // Watchlist HTTP Requests
 
     self.addToWatchlist = function(data, user) {
-          data.id = user.id
+          data.id = self.userObject.id;
           $http.post('/watchlist/add', data)
             .then(function (response) {
               console.log('here is the response', response);
@@ -67,7 +67,7 @@ myApp.service('UserService', ['$http', '$location', '$log',
 
     
         self.deleteFromWatchlist = function(data, user) {
-          data.id = user.id;
+          data.id = self.userObject.id;
           console.log(data);
           $http.post('/watchlist/remove', data)
             .then(function (response) {
@@ -78,9 +78,10 @@ myApp.service('UserService', ['$http', '$location', '$log',
 
 
 
-    self.getWatchlist = function (user) {
+    self.getWatchlist = function () {
+      let user = self.userObject;
       console.log('getting watchlist');
-      $http.post('/watchlist', user)
+      $http.get(`/watchlist/${user.id}`)
         .then(function (response) {
           if (response == 'Forbidden') {
             $location.path('/login');
@@ -107,7 +108,7 @@ myApp.service('UserService', ['$http', '$location', '$log',
               self.userObject.id = response.data.id;
               self.getWatchlist(self.userObject);
               } else {
-                self.userObject.username = response.data.username;
+                self.userObject = response.data;
               }
 
             }

@@ -20,7 +20,7 @@ myApp.controller('TitleDetailsController', ['$http', '$location', 'UserService',
   };
 
 
-  self.addToWatchlist = function (data, user) {
+  self.addToWatchlist = function (movie, user) {
       if (!self.userObject.username) {
         self.open();
       }
@@ -44,8 +44,7 @@ myApp.controller('TitleDetailsController', ['$http', '$location', 'UserService',
     };
 
       UserService.addToWatchlist(data, user)
-      self.openSuccess() 
-      UserService.getWatchlist(user);
+      UserService.getWatchlist();
 
     }
 

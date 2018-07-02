@@ -5,18 +5,18 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --inspect server/server.js"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pftiller/AngularDemo.git"
+    "url": "git+https://github.com/pftiller/solo-project"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pftiller/AngularDemo/issues"
+    "url": "https://github.com/pftiller/solo-project"
   },
-  "homepage": "https://github.com/pftiller/AngularDemo#readme",
+  "homepage": "https://github.com/pftiller/solo-project",
   "dependencies": {
     "angular": "^1.6.9",
     "axios": "^0.17.1",
