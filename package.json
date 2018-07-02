@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pftiller/AngularDemo.git"
+    "url": "git+https://github.com/pftiller/solo-project.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pftiller/AngularDemo/issues"
+    "url": "https://github.com/pftiller/solo-project"
   },
-  "homepage": "https://github.com/pftiller/AngularDemo#readme",
+  "homepage": "https://github.com/pftiller/solo-project#readme",
   "dependencies": {
     "angular": "^1.6.9",
     "axios": "^0.17.1",
