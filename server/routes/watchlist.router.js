@@ -43,7 +43,7 @@ router.post('/add', (req, res)=>{
     pool.query(queryText, [req.body.movie_id, req.body.title, req.body.genre, req.body.synopsis, req.body.director, req.body.actors, req.body.mpaa_rating, req.body.length, req.body.release_year, req.body.rotten_tomatoes, req.body.release_date, req.body.website, req.body.id])
         .then((result)=>{
             console.log('post success resulted in this', result);
-            res.sendStatus(200);
+            res.sendStatus(201);
         })
         .catch((err)=>{
             console.log('this is the error that I received', err);

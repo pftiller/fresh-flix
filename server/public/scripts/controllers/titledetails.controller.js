@@ -1,4 +1,4 @@
-myApp.controller('TitleDetailsController', ['$http', '$location', 'UserService', '$routeParams', 'TheMDBService', '$filter', '$uibModal', function ($http, $location, UserService, $routeParams, TheMDBService, $filter, $uibModal) {
+myApp.controller('TitleDetailsController', ['$http', '$location', 'UserService', '$routeParams', 'TheMDBService', '$filter', '$uibModal', 'toast', function ($http, $location, UserService, $routeParams, TheMDBService, $filter, $uibModal, toast) {
   console.log('TitleDetailsController');
   const self = this;
   self.userService = UserService;
@@ -21,51 +21,46 @@ myApp.controller('TitleDetailsController', ['$http', '$location', 'UserService',
 
 
   self.addToWatchlist = function (movie, user) {
-      if (!self.userObject.username) {
-        self.open();
-      }
-    else {
+    if (!self.userObject.username) {
+      self.open();
+    } else {
       self.isDisabled = true;
       let rotten_tomatoes = self.objs.Ratings[0].Value;
-       console.log(rotten_tomatoes);
+      console.log(rotten_tomatoes);
       data = {
-      "movie_id": movie.imdbID,
-      "title": movie.Title,
-      "genre": movie.Genre,
-      "synopsis": movie.Plot,
-      "director": movie.Director,
-      "actors": movie.Actors,
-      "mpaa_rating": movie.Rated,
-      "length": movie.Runtime,
-      "release_year": movie.Year,
-      "rotten_tomatoes": rotten_tomatoes,
-      "release_date": movie.Released,
-      "website": movie.Website
-    };
-
-      UserService.addToWatchlist(data, user)
-      UserService.getWatchlist();
+        "movie_id": movie.imdbID,
+        "title": movie.Title,
+        "genre": movie.Genre,
+        "synopsis": movie.Plot,
+        "director": movie.Director,
+        "actors": movie.Actors,
+        "mpaa_rating": movie.Rated,
+        "length": movie.Runtime,
+        "release_year": movie.Year,
+        "rotten_tomatoes": rotten_tomatoes,
+        "release_date": movie.Released,
+        "website": movie.Website
+      };
+      UserService.addToWatchlist(data, user);
 
     }
-
   }
 
-  self.open = function() {
+
+        
+  self.open = function () {
     UserService.open();
   }
-  
-  self.cancel = function() {
+
+  self.cancel = function () {
     UserService.cancel();
   }
-  
-  self.close = function() {
+
+  self.close = function () {
     UserService.close();
   }
 
-
   
   init();
-
-
 
 }]);

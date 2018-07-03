@@ -1,5 +1,5 @@
 myApp.service('UserService', ['$http', '$location', '$log', 
-'$uibModal',  function ($http, $location, $log, $uibModal) {
+'$uibModal', 'toast', function($http, $location, $log, $uibModal, toast) {
     var service = {};
     var self = this;
     self.userObject = {};
@@ -59,13 +59,25 @@ myApp.service('UserService', ['$http', '$location', '$log',
           data.id = self.userObject.id;
           $http.post('/watchlist/add', data)
             .then(function (response) {
-              console.log('here is the response', response);
+             console.log(response);
+        if(response.status = 201) {
+          toast({
+            duration: 10000,
+            message: "Success",
+            className: "alert-success"
+          });
+        }
+        else {
+          toast({
+            duration: 10000,
+            message: "Error",
+            className: "alert-danger"
+          });
+        }
+      })
+    }
 
-        })
-
-      }
-
-    
+  
         self.deleteFromWatchlist = function(data, user) {
           data.id = self.userObject.id;
           console.log(data);
