@@ -1,5 +1,5 @@
 {
-  "name": "angular-demo",
+  "name": "fresh-flix",
   "version": "1.0.0",
   "description": "AngularJS with ExpressJS =====",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pftiller/solo-project"
+    "url": "git+https://github.com/pftiller/fresh-flix"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pftiller/solo-project"
+    "url": "https://github.com/pftiller/fresh-flix"
   },
-  "homepage": "https://github.com/pftiller/solo-project",
+  "homepage": "https://github.com/pftiller/fresh-flix",
   "dependencies": {
     "angular": "^1.7.2",
     "angular-animate": "^1.7.2",
