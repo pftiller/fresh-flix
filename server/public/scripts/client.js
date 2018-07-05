@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'angularjsToast']);
 myApp.config(['$routeProvider','$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
     console.log('myApp loaded');
     $routeProvider

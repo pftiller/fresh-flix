@@ -2,34 +2,20 @@ const express = require('express');
 const pool = require('../modules/pool.js');
 const router = express.Router();
 
-  router.post('/', (req, res)=>{
-    console.log(req.body.id);
-    let queryText = `SELECT 
-                        movie_id, 
-                        title, 
-                        genre, 
-                        synopsis, 
-                        director, 
-                        actors, 
-                        mpaa_rating, 
-                        length, 
-                        release_year, 
-                        rotten_tomatoes, 
-                        release_date, 
-                        website
+  router.get('/:id', (req, res)=>{
+    console.log('this is req.params.ids', req.params.id);
+    let queryText = `SELECT *
                     FROM watchlists
                     WHERE id = $1`
-                pool.query(queryText, [req.body.id])
-                .then((result)=>{
-                    console.log('get success resulted in this', result);
-                    res.send(result.rows);
-                })
-                .catch((err)=>{
-                    console.log('get request returned this error', err);
-                    res.sendStatus(500);
-                });
-        });
-    
+                    pool.query(queryText, [req.params.id])
+                    .then((result) => {
+                        res.send(result.rows);
+                    })
+                    .catch((err) => {
+                        console.log('error getting watchlist', err);
+            
+                    })
+            });
 
 router.post('/remove', (req, res)=>{
     console.log('this is req.body', req.body);
@@ -57,25 +43,12 @@ router.post('/add', (req, res)=>{
     pool.query(queryText, [req.body.movie_id, req.body.title, req.body.genre, req.body.synopsis, req.body.director, req.body.actors, req.body.mpaa_rating, req.body.length, req.body.release_year, req.body.rotten_tomatoes, req.body.release_date, req.body.website, req.body.id])
         .then((result)=>{
             console.log('post success resulted in this', result);
-            res.sendStatus(200);
+            res.sendStatus(201);
         })
         .catch((err)=>{
             console.log('this is the error that I received', err);
             res.sendStatus(500);
         });
 });
-
-// router.delete('/:id', (req, res)=>{
-//     let queryText = `'UPDATE koala SET ready_to_transfer = $1 WHERE id=$2'`
-// pool.query(queryText, [req.params.id])
-//     .then((result)=>{
-//         console.log('delete success resulted in this', result);
-//         res.send(result.rows);
-//     })
-//     .catch((err)=>{
-//         console.log('delete error resulted in this', err);
-//         res.sendStatus(500);
-//     });
-// });
 
 module.exports = router;

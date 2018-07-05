@@ -1,4 +1,4 @@
-myApp.service('TheMDBService', ['UserService', '$http', '$location', function(UserService, $http, $location){
+ myApp.service('TheMDBService', ['UserService', '$http', '$location', function(UserService, $http, $location){
     console.log('TheMDBService created');
     const self = this;
     self.movies = { list: [] };

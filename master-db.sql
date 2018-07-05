@@ -22,14 +22,3 @@ CREATE TABLE "watchlists"
  "release_date"    DATE ,
  "website"         TEXT 
 );
-
-
-
-
-
-
-
-
-
-
-
