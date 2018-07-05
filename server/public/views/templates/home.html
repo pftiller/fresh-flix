@@ -1,7 +1,7 @@
 <div ng-include="'/views/partials/nav.html'" ng-controller="NavController as vm"></div>
 <div ng-controller="HomeController as vm">
  
-     <form ng-submit="vm.sendGenre(type, genre)" ng-hide="display">
+     <form id="search-parameters" ng-submit="vm.sendGenre(type, genre)" ng-hide="display">
     <div class="btn-group" uib-dropdown id="type">
       <button id="single-button type" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
         {{vm.typeButton.name}}

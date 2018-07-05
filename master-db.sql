@@ -8,7 +8,7 @@ CREATE TABLE "users"
 
 CREATE TABLE "watchlists"
 (
- "id"         INT REFERENCES "users" ("id"),
+ "id"              INT REFERENCES "users" ("id"),
  "movie_id"        INT NOT NULL ,
  "title"           TEXT NOT NULL ,
  "genre"           TEXT NOT NULL ,

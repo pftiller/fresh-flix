@@ -81,7 +81,22 @@ body {
 }
 .navbar-toggle .icon-bar{ background-color: #fff;}
 
+.jumbtron {
+  border-radius: 10px;
+}
 /* HOME */
+#search-parameters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#search-parameters > div {
+  margin-bottom:10px;
+}
+#search-parameters > button {
+  width:500px;
+  padding: 6px 12px;
+}
 .dropdown-toggle {
   background-color: #fff;
   border: none;
@@ -93,7 +108,15 @@ body {
   background-color: #fff;
   width:500px;
 }
+/* #type,
+#genre {
+  display:block;
+}
 
+#type > button,
+#genre > button {
+  float: none;
+} */
 .dropdown-menu>li{
   color: #777;
   padding-left: 5px;
