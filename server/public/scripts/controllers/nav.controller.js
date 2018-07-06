@@ -1,13 +1,18 @@
 myApp.controller('NavController', ['UserService', '$http', '$location', '$uibModal', function (UserService, $location, $uibModal) {
   console.log('NavController created')
   var self = this;
-  self.user = UserService.userObject;
- 
 
-let init = function () {
-    UserService.getuser();
-  };
 
+let init = function() {
+  UserService.getuser()
+  .then((response)=>{
+    self.user = response.data;
+    return response;
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+};
 
 self.open = function() {
   UserService.open();
