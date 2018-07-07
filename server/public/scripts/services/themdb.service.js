@@ -37,6 +37,7 @@ function fetchId(arr, data)  {
      }
 
      function getMovies(info, id) {
+        self.movieresults.list = []; 
         let data =
         {
          'type': info.type,   
