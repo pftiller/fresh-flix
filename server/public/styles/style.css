@@ -111,20 +111,23 @@ body {
   background-color: #fff;
   width:500px;
 }
-/* #type,
-#genre {
-  display:block;
-}
-
-#type > button,
-#genre > button {
-  float: none;
-} */
 .dropdown-menu>li{
   color: #777;
   padding-left: 5px;
 }
 /*FLICKS*/
+.filter-controls {
+  position:relative;
+}
+.filter-controls > input[type="text"] {
+  text-indent:25px;
+}
+.fa-search {
+  color:#777;
+  position: absolute;
+  top: 25%;
+  left: 1%;
+}
 table {
   border-collapse: collapse;
   width: 100%;

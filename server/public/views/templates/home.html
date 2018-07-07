@@ -1,13 +1,13 @@
 <div ng-include="'/views/partials/nav.html'" ng-controller="NavController as vm"></div>
 <div ng-controller="HomeController as vm">
  
-     <form id="search-parameters" ng-submit="vm.sendGenre(type, genre)" ng-hide="display">
+     <form name="form" id="search-parameters" ng-submit="vm.sendGenre(type, genre)" ng-hide="display">
     <div class="btn-group" uib-dropdown id="type">
-      <button id="single-button type" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+      <button id="single-button type" type="button" class="btn btn-primary" uib-dropdown-toggle>
         {{vm.typeButton.name}}
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" id="header-brands" uib-dropdown-menu role="menu" aria-labelledby="type">
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="type" required>
         <li role="presentation" select-val="selected_type = selectedVal" preselected-item="selected_type" data-dropdown-data="types"
           ng-repeat="type in vm.types">
           <a role="menuitem" ng-click="vm.typeSelect(type)" tabindex="-1"  href="#">{{type.name}}</a>
@@ -16,22 +16,22 @@
 
 
     <div class="btn-group" uib-dropdown  id="genre">
-      <button id="single-button genre" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+      <button id="single-button genre" type="button" class="btn btn-primary" uib-dropdown-toggle>
         {{vm.genreButton.name}}
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" id="header-stuff" uib-dropdown-menu role="menu" aria-labelledby="genre">
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="genre" required>
         <li role="presentation" ng-repeat="genre in vm.genres">
           <a role="menuitem" tabindex="-1" ng-click="vm.genreSelect(genre)" href="#">{{genre.name}}</a>
       </ul>
     </div>
 
 
-    <button type="submit" ng-click="display=true" class="btn btn-lg btn-primary">Go</button>
+    <button type="submit" ng-click="display=true" ng-disabled="form.$invalid" class="btn btn-lg btn-primary">Go</button>
   </form>
   <div style="overflow-x:auto;" ng-show="display">
 
-    <form>
+    <!-- <form>
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon">
@@ -39,7 +39,11 @@
           </div>
         </div>
       </div>
-    </form>
+    </form> -->
+    <div class="filter-controls">    
+      <i class="fa fa-search"></i>
+      <input type="text" ng-model="query" class="form-control">
+    </div>
 
     <table class="table table-bordered table-striped">
 
@@ -70,7 +74,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="film in vm.films.list">
+        <tr ng-repeat="film in vm.films.list | filter :query">
           <td>
             <a ng-href="#!/titledetails/{{film.imdbID}}">{{film.Title}}</a>
           </td>
