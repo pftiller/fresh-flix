@@ -16,7 +16,18 @@ myApp.service('UserService', ['$http', '$location', '$log',
       name: "Select Genre",
       id: undefined
     }
-
+    self.getuser = function() {
+      return $http.get('/api/user', (response)=>{
+          console.log(response);
+      })
+      .then((response)=> {
+        self.userObject = response.data;
+        return response;
+      })
+      .catch((err)=> {
+        console.log(err);
+      })
+    };
 
     self.typeSelect = function (name) {
       self.typeButton = name;
@@ -38,11 +49,14 @@ myApp.service('UserService', ['$http', '$location', '$log',
     self.logout = function () {
       self.userObject = {};
       console.log('UserService -- logout');
-      $http.get('/api/user/logout').then(function (response) {
+      return $http.get('/api/user/logout')
+      .then(function (response) {
         console.log(response);
-        self.getuser();
+        $location.path("/home");
       })
-      $location.path("/home");
+      .catch((err)=>{
+        console.log(err);
+      })
     }
     //register function
     self.register = function (user, callback) {
@@ -90,56 +104,23 @@ myApp.service('UserService', ['$http', '$location', '$log',
 
 
     self.getWatchlist = function () {
-      let user = self.userObject;
       console.log('getting watchlist');
-      $http.get(`/watchlist/${user.id}`)
-        .then(function (response) {
-          if (response == 'Forbidden') {
-            $location.path('/login');
-          } else {
-            console.log(response);
-            if (response.data) {
-              return self.watchlist.data = response.data;
-            } else {
-              return self.watchlist = [];
-            }
+      return $http.get(`/watchlist/${self.userObject.id}`)
+      .then(function (response) {
+          if(response.status > 201) {
+            self.open();
+            return $location.path("/login");
           }
-        });
-    }
+          else {
+            self.watchlist.data = response.data;
+            return 201;
+          }
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+      }
 
-    self.getuser = function() {
-      return $http.get('/api/user', (response)=>{
-          console.log(response);
-      })
-      .then((response)=> {
-        return response;
-      })
-      .catch((err)=> {
-        console.log(err);
-      })
-    };
-      
-    //   .then((response)=>{
-    //    
-    //   }
-    // }).catch((err)=>{
-    //     return promise1;
-    //   })
-
-
-    // if (response == 'Forbidden' && $location.path() !== '/home') {
-    //   console.log('here is the path', $location.path());
-    //   self.userObject = {};
-    //   $location.path('/login');
-
-    // } else {
-    //   if ($location.path() == '/watchlist') {
-    //     self.userObject.username = response.data.username;
-    //     self.userObject.id = response.data.id;
-    //     self.getWatchlist(self.userObject);
-    //   } else {
-    //     self.userObject = response.data;
-    //   }
 
     self.open = function () {
       modalInstance = $uibModal.open({

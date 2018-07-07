@@ -9,14 +9,11 @@ myApp.controller('UserController', ['UserService', 'TheMDBService', '$location',
 
     let init = function () {
             UserService.getWatchlist()
-    //         .then( function (response) {
-    //             if(response == 'Forbidden') {
-    //                 $location.path('/login');
+            .then( function (response) {
+               console.log('here is the response', response);
             
-    //     }
-    // })
-}
-
+        })
+    }
     self.logout = function () {
         UserService.logout(self.user, function (response) {
             if (response.status == 200) {

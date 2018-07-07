@@ -36,6 +36,9 @@ ul {
 li a:hover {
   text-decoration: underline;
 }
+.modal-dialog {
+  max-width: 550px;
+}
 
 /* MY STYLES */
 
@@ -81,7 +84,7 @@ body {
 }
 .navbar-toggle .icon-bar{ background-color: #fff;}
 
-.jumbtron {
+.jumbotron {
   border-radius: 10px;
 }
 /* HOME */
