@@ -16,6 +16,12 @@ router.get('/', (req, res) => {
   }
 });
 
+router.get('/check', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.send(req.user);
+  } 
+});
+
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted

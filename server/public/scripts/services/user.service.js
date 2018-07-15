@@ -1,11 +1,9 @@
 myApp.service('UserService', ['$http', '$location', '$log',
   '$uibModal', 'toast',
   function ($http, $location, $log, $uibModal, toast) {
-    var service = {};
     var self = this;
     self.userObject = {};
     self.watchlist = [];
-    let id;
     let modalInstance = null;
     self.status = [];
     self.typeButton = {
@@ -18,6 +16,19 @@ myApp.service('UserService', ['$http', '$location', '$log',
     }
     self.getuser = function() {
       return $http.get('/api/user', (response)=>{
+          console.log(response);
+      })
+      .then((response)=> {
+        self.userObject = response.data;
+        return response;
+      })
+      .catch((err)=> {
+        console.log(err);
+      })
+    };
+
+    self.checkIfUser = function() {
+      return $http.get('/api/user/check', (response)=>{
           console.log(response);
       })
       .then((response)=> {
@@ -69,7 +80,7 @@ myApp.service('UserService', ['$http', '$location', '$log',
 
     // Watchlist HTTP Requests
 
-    self.addToWatchlist = function (data, user) {
+    self.addToWatchlist = function (data) {
       data.id = self.userObject.id;
       $http.post('/watchlist/add', data)
         .then(function (response) {
@@ -135,20 +146,14 @@ myApp.service('UserService', ['$http', '$location', '$log',
       });
       modalInstance.result.then(function (selectedItem) {
         self.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
+      })
     };
 
 
     self.cancel = function () {
+      console.log('closing');
       modalInstance.dismiss('cancel');
     }
-
-    self.close = function (reason) {
-      modalStack.dismissAll(reason);
-    }
-
 
   }
 ])

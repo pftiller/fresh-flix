@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$http', '$location', 'UserService', '$uibModal', function($http, $location, UserService, $uibModal) {
+myApp.controller('LoginController', ['$location', 'UserService', '$uibModal', function($location, UserService, $uibModal) {
     console.log('LoginController created');
     // reset login status    
     var self = this;
@@ -10,14 +10,9 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$uibM
         self.watchlist = {};
         self.message = [];
 
-
-
-      
         self.cancel = function () {
-          $modalInstance.dismiss('cancel');
-        };
-        
-
+          UserService.cancel();
+        }
  //login function
  self.login = function () {
   if (self.user.username === '' || self.user.password === '') {
@@ -51,15 +46,4 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', '$uibM
         });
     };
   }
-
-  self.close = function () {
-   UserService.close()
-  };
-  
-  self.cancel = function () {
-    UserService.cancel();
-   }
-
-
-
   }]);

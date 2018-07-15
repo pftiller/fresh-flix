@@ -5,13 +5,13 @@ myApp.controller('NavController', ['UserService', '$http', '$location', '$uibMod
 
 
 let init = function() {
-  UserService.getuser()
-  .then((response)=>{
-    return response;
-  })
-  .catch((err)=>{
-    console.log(err);
-  })
+  UserService.checkIfUser()
+  // .then((response)=>{
+  //   console.log(response);
+  // })
+  // .catch((err)=>{
+  //   console.log(err);
+  // })
 };
 
 self.open = function() {

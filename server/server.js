@@ -1,6 +1,4 @@
-var express = require('express'),
-    path = require('path'),
-    http = require('http');
+var express = require('express');
 
 var app = express();
 const bodyParser = require('body-parser');
