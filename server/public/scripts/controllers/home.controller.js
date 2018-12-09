@@ -1,8 +1,8 @@
 myApp.controller('HomeController', ['$http', '$location', 'UserService', 'TheMDBService', function($http, $location, UserService, TheMDBService) {
     console.log('HomeController created');
     const self = this;
-    self.films = TheMDBService.movieresults;
     self.status = UserService.status;
+    self.films = TheMDBService.movieresults;
     self.typeButton = UserService.typeButton;
     self.genreButton = UserService.genreButton;
     self.types =  [

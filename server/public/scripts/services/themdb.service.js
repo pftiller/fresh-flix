@@ -2,9 +2,7 @@
     console.log('TheMDBService created');
     const self = this;
     self.movies = { list: [] };
-    self.movieresults = {
-        list: []
-    };
+    self.movieresults = {};
     self.imdbIDs= [];
     self.typeButton = UserService.typeButton;
     self.genreButton = UserService.genreButton;
@@ -74,14 +72,23 @@ function idToOMDB(id) {
     });
 
     }
-
-
-
- 
-
-
-
-
-
-
+function get  
+  let Promise = self.reset( {
+     if(self.movieresults.list) {
+        self.movieresults = {};
+      }));
+        return Promise;
+    }
 }]);
+
+Person = $resource('', null, {
+    get: {
+      method: 'GET',
+      url: '/apis/person'
+  }));
+
+  return Person;
+}
+]);
+
+

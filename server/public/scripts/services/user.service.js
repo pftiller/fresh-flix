@@ -5,6 +5,7 @@ myApp.service('UserService', ['$http', '$location', '$log',
     self.userObject = {};
     self.watchlist = [];
     let modalInstance = null;
+    self.displayStatus = {hide: true}; 
     self.status = [];
     self.typeButton = {
       name: "Select Type",
@@ -46,9 +47,6 @@ myApp.service('UserService', ['$http', '$location', '$log',
     self.genreSelect = function (name) {
       self.genreButton = name;
     }
-
-
-
 
     self.login = function (user, callback) {
       $http.post('/api/user/login', user).then(

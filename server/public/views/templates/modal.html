@@ -13,7 +13,7 @@
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" ng-model="vm.user.password"
                         required>
-                    <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-lg btn-primary button">Login</button>
+                    <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-lg btn-primary button modal-btn">Login</button>
                     <a href="#" ng-click="vm.UserService.model.modalType = 'signup'">Register</a>
                     <a class="cancel" href="#" ng-click="vm.cancel()">Cancel</a>
                 </form>
@@ -33,7 +33,7 @@
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" ng-model="vm.user.password"
                         required>
-                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-lg btn-primary button">Register</button>
+                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-lg btn-primary button modal-btn">Register</button>
                     <a href="#" ng-click="vm.UserService.model.modalType = 'login'">Log in</a>
                     <a class="cancel" href="#" ng-click="vm.cancel()">Cancel</a>
                 </form>

@@ -1,23 +1,19 @@
-myApp.controller('NavController', ['UserService', '$http', '$location', '$uibModal', function (UserService, $location, $uibModal) {
+myApp.controller('NavController', ['UserService', 'TheMDBService', '$http', '$location', function (UserService,  TheMDBService, $location) {
   console.log('NavController created')
   var self = this;
   self.user = UserService.userObject;
+  self.movieresults = TheMDBService.movieresults;
 
 
 let init = function() {
   UserService.checkIfUser()
-  // .then((response)=>{
-  //   console.log(response);
-  // })
-  // .catch((err)=>{
-  //   console.log(err);
-  // })
 };
 
 self.open = function() {
   UserService.open();
 }
-
+self.reset = TheMDBService.reset();
+  
 self.cancel = function() {
   UserService.cancel();
 }
@@ -34,5 +30,12 @@ self.logout = function () {
       }
   });
 }
+self.resolve = function (response) {
+  console.log(response);
+};
+
+
+$q.all([self.reset.$promise]).then(self.resolve);
+
 init();
 }]);
